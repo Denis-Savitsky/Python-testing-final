@@ -9,11 +9,11 @@ class ProductPage(BasePage):
         btn_add_to_cart.click()
 
     def compare_product_name(self):
-        assert self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text in \
-               self.browser.find_element(*ProductPageLocators.ALERT_PRODUCT_ADDED).text, \
+        assert self.browser.find_element(*ProductPageLocators.ALERT_PRODUCT_ADDED).text == \
+               self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text + " has been added to your basket.", \
                 "The product name does not align with the name in the alert"
 
     def compare_price(self):
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text in \
                self.browser.find_element(*ProductPageLocators.ALERT_PRODUCT_PRICE).text, \
-            "The product price does not align with the price in the alert"
+               "The product price does not align with the price in the alert"

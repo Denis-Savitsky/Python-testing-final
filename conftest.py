@@ -13,6 +13,10 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers", "login_guest: mark test to login from main page"
     )
+    config.addinivalue_line(
+        "markers", "need_review: mark for tests needed to be reviewed"
+    )
+
 
 
 @pytest.fixture(scope='function')

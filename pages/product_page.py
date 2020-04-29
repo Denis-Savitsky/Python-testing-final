@@ -1,6 +1,6 @@
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
+
 
 class ProductPage(BasePage):
 
@@ -11,12 +11,12 @@ class ProductPage(BasePage):
     def compare_product_name(self):
         assert self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text == \
                self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text + " has been added to your basket.", \
-                "The product name does not align with the name in the alert"
+            "The product name does not align with the name in the alert"
 
     def compare_price(self):
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text in \
                self.browser.find_element(*ProductPageLocators.ALERT_PRODUCT_PRICE).text, \
-               "The product price does not align with the price in the alert"
+            "The product price does not align with the price in the alert"
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
